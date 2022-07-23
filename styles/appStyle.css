@@ -1,0 +1,74 @@
+*{
+    
+    font-family: 'Source Sans Pro', sans-serif;
+
+    
+
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+h1{
+    margin-top: 0;
+    text-align: center;
+    background-color: rgb(228, 171, 0);
+    color: white;
+    padding: 7px 0;
+    margin-bottom: 0;
+}
+
+h3{
+    margin-left: 10px;
+}
+
+.main-container{
+    display: flex;
+    height: calc(100% - 55px);
+
+}
+.container-list{
+    flex: 3;
+}
+
+
+.container-form{
+    padding: 10px 0 10px 0;
+    flex: 2;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.taskForm{
+    display: block;
+    margin-bottom:  15px;
+}
+
+.taskForm label{
+    display: inline-block;
+    width: 70px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.taskForm input,.taskForm  select, .taskForm textarea{
+    display: inline-block;
+    padding: 5px 10px;
+    width: auto;
+}
+
+#icon-important{
+    color: rgb(255, 221, 0);
+    font-size: 20px; 
+    cursor: pointer;
+}
+
+
+#icon-important:hover{
+    padding-left: 2px;
+}
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/337be747ec.js" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="./styles/appStyle.css">
+
+    <title>My Task Manager</title>
+</head>
+<body>
+
+    <header>
+        <h1>My Task Manager</h1>
+    </header>
+
+    <main class="main-container">
+        <section class="container-list">
+            <h3>List</h3>
+
+
+        </section>
+        
+
+        <section class="container-form">
+            <h3>Task information</h3>
+
+            <div class="taskForm">
+                <label>Important</label>
+                <i class="fa-regular fa-star" id="icon-important"></i>
+                
+            </div>
+
+            <div class="taskForm">
+                <label>Title</label>
+                <input type="text" name="Title" id="txtTitle">
+            </div>
+
+            <div class="taskForm">
+                <label>Description</label>
+                <textarea name="Description" id="txtDescription" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="taskForm">
+                <label>Due Date</label>
+                <input type="datetime-local" name="Date" id="txtDate">
+            </div>
+
+            <div class="taskForm">
+                <label>Color</label>
+                <input type="color" name="Color" id="txtColro">
+            </div>
+
+
+            <div class="taskForm">
+                <label>Emoji</label>
+                <input type="text" name="Emoji" id="txtEmoji">
+            </div>
+
+
+            <div class="taskForm">
+                <label>Location</label>
+                <input type="text" name="Location" id="txtLocation">
+            </div>
+
+            <div class="taskForm">
+                <label>Status</label>
+                <select name="Status" id="txtStatus">
+                    <option value="New">New</option>
+
+                    <option value="In Progress">In Progress</option>
+
+                    <option value="Blocked">Blocked</option>
+
+                    <option value="Paused">Paused</option>
+
+                    <option value="Removed">Removed</option>
+
+                    <option value="Done">Done</option>
+                </select>
+            </div>
+
+
+            <div class="taskForm">
+                <label>Notification</label>
+                <input type="text" name="Notification" id="txtNotification">
+            </div>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js
+    "></script>
+
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
+
+<!--
+    important
+    title
+    dueDate
+    description
+    color
+    emoji
+    location
+    status
+    notification
+-->
