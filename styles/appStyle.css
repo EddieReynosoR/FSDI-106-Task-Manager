@@ -27,7 +27,7 @@ h3{
 
 .main-container{
     display: flex;
-    height: calc(100% - 55px);
+    height: calc(100% - 132px);
 
 }
 .container-list{
@@ -41,6 +41,13 @@ h3{
     border: 1px solid #dedede;
     border-radius: 10px;
     margin-right: 10px;
+    margin-left: 40px;
+    height: fit-content;
+}
+
+.container-list{
+    margin-right: 10px;
+    border-right: 3px solid orange;
 }
 
 .taskForm{
@@ -51,14 +58,17 @@ h3{
 .taskForm label{
     display: inline-block;
     width: 70px;
-    text-align: right;
-    margin-right: 5px;
+    
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .taskForm input,.taskForm  select, .taskForm textarea{
     display: inline-block;
     padding: 5px 10px;
     width: auto;
+    margin-left: 10px;
+    width: 90%;
 }
 
 #icon-important{
@@ -70,5 +80,19 @@ h3{
 
 #icon-important:hover{
     padding-left: 2px;
+}
+
+#add-button, #hide-button{
+    margin-left: 85%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: orange;
+    border-color: rgb(255, 170, 0);
+    font-size: 20px;
+    
+}
+
+#add-button:hover, #hide-button:hover{
+    background-color: rgb(255, 217, 0);
 }
 
