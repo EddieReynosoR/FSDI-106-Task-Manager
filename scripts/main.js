@@ -10,14 +10,12 @@ function Important(){
 
     if(!isImportant){
         console.log("Important!");
-        $("#icon-important").removeClass(importantIconClass);
-        $("#icon-important").addClass(nonImportantIconClass);
+        $("#icon-important").removeClass(importantIconClass).addClass(nonImportantIconClass);
 
         isImportant = true;
     }else{
         console.log("Not important.");
-        $("#icon-important").removeClass(nonImportantIconClass);
-        $("#icon-important").addClass(importantIconClass);
+        $("#icon-important").removeClass(nonImportantIconClass).addClass(importantIconClass);
 
         isImportant = false; 
     }
@@ -30,15 +28,13 @@ function hideForm(){
     if(!Hide){
         console.log("Hiding...");
         $("#hide-button").hide();
-        $("#task-form").hide();
-       
+        $("#task-form").hide(100);
         $("#add-button").show();
         Hide = true
     }else{
         console.log("Showing...");
         $("#hide-button").show();
-        $("#task-form").show();
-        
+        $("#task-form").show(100);
         $("#add-button").hide();
 
         Hide = false;
@@ -57,6 +53,10 @@ function init(){
 
     $("#add-button").click(hideForm);
     $("#hide-button").click(hideForm);
+
+
+
+    $("#btnSave").click(saveTask);
 
 }
 

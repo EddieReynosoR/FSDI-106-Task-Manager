@@ -31,9 +31,14 @@
         
 
         
-        <section class="container-list">
+        <section class="container-list" id="task-list">
             <h3>List</h3>
 
+            <div class="task-list" id="pendingTasks">
+                <!-- render here the tasks -->
+                
+
+            </div>
 
         </section>
         
@@ -59,18 +64,30 @@
 
             <div class="taskForm">
                 <label>Due Date</label>
-                <input type="datetime-local" name="Date" id="txtDate">
+                <input type="datetime-local" name="Date" id="selDate">
             </div>
 
             <div class="taskForm">
                 <label>Color</label>
-                <input type="color" name="Color" id="txtColro">
+                <select name="Color" id="selColor">
+                    <option value="red">Red</option>
+
+                    <option value="blue">Blue</option>
+
+                    <option value="green">Green</option>
+
+                    <option value="Yellow">Yellow</option>
+                </select>
             </div>
 
 
             <div class="taskForm">
                 <label>Emoji</label>
-                <input type="text" name="Emoji" id="txtEmoji">
+                <select id="selEmoji">
+                    <option value="😃">😃</option>
+
+                    <option value="😉">😉</option>
+                </select>
             </div>
 
 
@@ -81,7 +98,7 @@
 
             <div class="taskForm">
                 <label>Status</label>
-                <select name="Status" id="txtStatus">
+                <select name="Status" id="selStatus">
                     <option value="New">New</option>
 
                     <option value="In Progress">In Progress</option>
@@ -97,16 +114,21 @@
             </div>
 
 
-            <div class="taskForm">
-                <label>Notification</label>
-                <input type="text" name="Notification" id="txtNotification">
+            <div class="checkNoti">
+                <label for="chkNotification">Notification:</label>
+                <input type="checkbox" name="Notification" 
+                class="form-check-input" id="chkNotification">
             </div>
+
+            <button id="btnSave" class="btn btn-primary">Save Task</button>
         </section>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js
     "></script>
 
+
+    <script src="./scripts/saveTask.js"></script>
     <script src="./scripts/main.js"></script>
 </body>
 </html>
