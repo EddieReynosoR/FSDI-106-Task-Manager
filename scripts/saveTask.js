@@ -44,7 +44,7 @@ function saveTask(){
         console.log("Saved!");
 
         displayTask(newTask);
-        // clearForm();
+        clearForm();
     }else{
         alert("You must add all the information that is needed.");
     }
@@ -67,33 +67,55 @@ function validTask(Task){
 
 
 function displayTask(task){
-    let systax = `
-    <div class="important-tasks">
+    
+        
+    
+    let systax1 = `
 
-    </div>
-
-    <div class="normal-tasks">
-        <div class="task-section">
+    <div class="tasks" id="tasks">
+        <div class="task-title">
             <h4>${task.title}</h4>
-            <p>${task.desc}</p>
         </div>
 
         <div class="task-section">
+            <p id="border-left">${task.desc}</p>
             <p>${task.date}</p>
             <p>${task.location}</p>
+            <p>${task.emoji}</p>
+            <p id="border-right">${task.status}</p>
+        </div>
+    </div>
+    `;
+
+
+    let systax2 = `
+
+    <div class="tasks">
+        <div class="task-title">
+            <h4><i class="fa-solid fa-star" id="important-task"></i> ${task.title}</h4>
         </div>
 
         <div class="task-section">
-            <p id="task-color">${task.color}</p>
+            <p id="border-left">${task.desc}</p>
+            <p>${task.date}</p>
+            <p>${task.location}</p>
             <p>${task.emoji}</p>
+            <p id="border-right">${task.status}</p>
         </div>
-
     </div>
     `;
 
     
+    if(!task.important){
+        $("#pendingTasks").append(systax1);
+        
+    }
+    else{
+        $("#important-tasks").append(systax2);
+    }
 
-    $("#pendingTasks").append(systax);
+   
+    
 }
 
 function clearForm(){
