@@ -26,6 +26,8 @@ function saveTask(){
             this.emoji = emoji;
             this.location = location;
             this.status = status;
+
+            this.name = "Eduardo";
         }
     }
 
@@ -37,16 +39,28 @@ function saveTask(){
 
         console.log(newTask);
 
+        $.ajax({
+            type: "POST",
+            url: "https://fsdiapi.azurewebsites.net/api/tasks",
+            data: JSON.stringify(newTask),
+            contentType: "application/json",
 
+            success: function(res){
+                console.log("Server says: ", res);
+                displayTask(newTask);
+                clearForm();
+            },
+            error: function(errorDetails){
+                console.log("Error saving tasks: ", errorDetails);
+            }
+
+        });
 
 
 
         console.log("Saved!");
 
-        displayTask(newTask);
-        clearForm();
-    }else{
-        alert("You must add all the information that is needed.");
+
     }
     
 }
@@ -58,9 +72,39 @@ function validTask(Task){
 
     if(Task.title.length == 0 ||Task.desc.length== 0 || Task.location.length == 0 ){
         valid = false;
+        alert("You must add all the information that is needed.");
+    }
+    else if(Task.desc.length > 100){
+        valid = false;
+        alert("Description can't exceed 60 caracters.");
     }
 
     return valid;
+}
+
+function fetchTasks(){
+    $.ajax({
+        type: "GET",
+        url: "https://fsdiapi.azurewebsites.net/api/tasks",
+
+        success: function(res){
+            let tasks = JSON.parse(res);
+
+            
+            for (let i = 0; i < tasks.length; i++) {
+                if(tasks[i].name == "Eduardo"){
+                    displayTask(tasks[i]);
+                }
+                
+            }
+            console.log("Server says: ", res);
+            
+        },
+        error: function(errorDetails){
+            console.log("Error saving tasks: ", errorDetails);
+        }
+
+    });
 }
 
 
@@ -68,21 +112,27 @@ function validTask(Task){
 
 function displayTask(task){
     
-        
-    
     let systax1 = `
 
-    <div class="tasks" id="tasks">
+    <div class="tasks" id="tasks" style="border:3px solid ${task.color};">
         <div class="task-title">
             <h4>${task.title}</h4>
         </div>
 
         <div class="task-section">
-            <p id="border-left">${task.desc}</p>
-            <p>${task.date}</p>
-            <p>${task.location}</p>
-            <p>${task.emoji}</p>
-            <p id="border-right">${task.status}</p>
+            <div class="desc" id="border-left">
+                <p><b>Description:</b></p>
+                <p>${task.desc}</p>
+            </div>
+            <div class="location">
+                <p><b>Date: </b>${task.date}</p>
+                <p><b>Location: </b>${task.location}</p>
+            </div>
+
+            <div class="status" id="border-right">
+                <p>${task.emoji}</p>
+                <p><b>Status: </b>${task.status}</p>
+            </div>
         </div>
     </div>
     `;
@@ -90,17 +140,25 @@ function displayTask(task){
 
     let systax2 = `
 
-    <div class="tasks">
+    <div class="tasks" style="border:3px solid ${task.color};">
         <div class="task-title">
             <h4><i class="fa-solid fa-star" id="important-task"></i> ${task.title}</h4>
         </div>
 
         <div class="task-section">
-            <p id="border-left">${task.desc}</p>
-            <p>${task.date}</p>
-            <p>${task.location}</p>
-            <p>${task.emoji}</p>
-            <p id="border-right">${task.status}</p>
+            <div class="desc" id="border-left">
+                <p><b>Description:</b></p>
+                <p>${task.desc}</p>
+            </div>
+            <div class="location">
+                <p><b>Date: </b>${task.date}</p>
+                <p><b>Location: </b>${task.location}</p>
+            </div>
+
+            <div class="status" id="border-right">
+                <p>${task.emoji}</p>
+                <p><b>Status: </b>${task.status}</p>
+            </div>
         </div>
     </div>
     `;
@@ -123,15 +181,8 @@ function clearForm(){
 
     $("#txtDescription").val("");
 
-    $("#selDate").val("");
-
-    $("#selColor").val("");
-
-    $("#selEmoji").val("");
-
     $("#txtLocation").val("");
 
-    $("#selStatus").val("");
 
     $("#chkNotification").prop("checked",false);
 }

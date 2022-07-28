@@ -58,6 +58,9 @@ function init(){
 
     $("#btnSave").click(saveTask);
 
+
+    fetchTasks();
+
     
 
 }
